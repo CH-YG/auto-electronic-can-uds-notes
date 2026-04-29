@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>多Agent协同运营自动化系统</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>多Agent协同运营自动化系统</h1>
+    <div class="card">
+        <h3>智能体列表</h3>
+        <ul>
+            {% for a in agents %}
+            <li>{{ a.name }} (类型：{{ a.type }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card">
+        <h3>任务执行结果</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>任务</th>
+                <th>状态</th>
+                <th>结果</th>
+            </tr>
+            {% for t in tasks %}
+            <tr>
+                <td>{{ t.tid }}</td>
+                <td>{{ t.title }}</td>
+                <td>{{ t.status.value }}</td>
+                <td>{{ t.result }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>
